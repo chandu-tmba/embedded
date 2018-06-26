@@ -1,0 +1,67 @@
+Which is faster macro or function? why?
+
+Macros are faster compare to function. when a function is called, 
+before execution of first program instruction of this function begins, 
+there are several steps associated which includes storing current register context on to stack, 
+storing return address (address of next instruction to be executed after function call),
+jump to destination address(where function code is located) and 
+finally allocate/initialize new stack frame for function to be executed. 
+These all steps take some processor cycles before execution of function code begins, 
+these steps are not required when using macros hence macros are faster. 
+
+What is size of int? explain.
+Size of int is machine dependent.
+
+8 bit machine – 2 bytes
+16 bit machine – 2 bytes
+32 bit machine – 4 bytes
+64 bit machine – 8 bytes
+
+Macro Vs Inline function.
+
+Macros	Inline Function
+Macros are processed at pre-processing time	Inline functions are processed at compile time
+Macros are less readable compare to inline functions	Usage of inline function makes code more readable and maintainable
+Debugging complex macros is a tough job	Inline functions are easy to debug
+No type checking done for macro parameters which may result into undesirable output if macro is not used carefully.	
+Compiler performs type checking for function arguments
+Using Macro guarantees that macro will be expanded whenever used in code and hence will be executed faster compare to normal function.
+Inline keyword is only request to complier to make function inline, using inline keyword doesn’t guarantee that function will be inline. 
+If compiler does not accept request to make function inline it will behave as normal function and
+code within function body will not be executed as fast as macro because of overhead associated with function calling.
+
+
+If you are to write a “for” loop, which approach would you prefer incrementing loop or decrementing loop? Why?
+I would prefer writing decrementing “for” loop.
+
+Incrementing “for” loop.
+
+for (index=0; index <20; index ++)
+
+{
+
+     printf(“incrementing loop”);
+
+}
+
+Decrementing “for” loop.
+
+for (index =20; index; index --)
+
+{
+
+     printf(“decrementing loop”);
+
+}                                                             
+
+In case of incrementing loop, processor has to compare value of index with 20 which is not an optimized operation
+for processor as 20 has to be loaded from ROM to processor register and compare with index. 
+In case of decrementing loop, processor has to compare value of index with zero and 
+that is an optimized operation as zero is stored in special function register of processor. 
+For better understanding check assembly equivalent code of above C code.
+
+Can a C function be called from assembly and vice versa?
+
+YES, C code can be invoked from assembly and assembly from C.  
+
+
